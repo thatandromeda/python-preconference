@@ -4,7 +4,7 @@ title: Lecture outline
 ---
 <div class="doc">
 
-    <div class="well">
+    <div>
       This page is forked from the <a href="http://librarycodeyearig.github.io/python-preconference/">
       Introduction to Python at ALA</a>. Thanks to <a href="https://github.com/yobj">
       Becky Yoose</a>, <a href="https://github.com/phette23">Eric Phetteplace</a>,
@@ -19,9 +19,15 @@ title: Lecture outline
         <ul>
             <li>Review Week 2 material</li>
             <li>Create and manipulate lists</li>
-            <li>Learn more advanced flow control: loops, nested control structures</li>
+            <li>Learn more advanced control flow: loops, nested control structures</li>
             <li>Create and manipulate dicts</li>
         </ul>
+        
+        <div>
+            This will allow you to keep track of more complex information in
+            your programs, and to write programs that make changes to large
+            volumes of data at a time.
+        </div>
     </div>
 
     <div class="steps">
@@ -67,7 +73,7 @@ title: Lecture outline
 </pre>
                     </div>
                     <div class="message">
-                    <p>This example is a bit more complicated, but more importantly, it shows that the order of operations in Python is the same as the order of operations that you learned in math class</p>
+                    <p>This example is a bit more complicated, but more importantly, it shows that the order of operations in Python is the same as the order of operations that you learned in math class.</p>
 
                     <p>As you may have noticed, none of those numbers involved decimal places. How do you think Python will handle decimal places? Let's give it a try:</p>
                     </div>
@@ -77,7 +83,20 @@ title: Lecture outline
 </pre>
                     </div>
                     <div class="message">
-                    <p>Ok, so that isn't quite what we were expecting. Because that fraction involved two integers, the result is also going to be an integer. Any time you want a decimal point to be an option, you have to input at least one number with a decimal point:</p>
+                        <div class="stickynote">
+                            Note: this changed in Python 3. We are using
+                            2.x versions of Python in this class. If you
+                            find yourself writing a 3.x program in future, make
+                            sure to review <a href="http://docs.python.org/3.2/whatsnew/3.0.html">
+                            What's new in Python 3.0</a>. (There are What's New
+                            docs for every version of python; you may need to
+                            review several to cover all the intermediate 
+                            versions. There are tools that will do most 
+                            of the work to migrate your programs automatically,
+                            but you should still understand what's happening
+                            just in case.
+                        </div>
+                    <p>Ok, so that isn't quite what we were expecting. Because that fraction involved two integers, <span class="stickynote">the result is also going to be an integer</span>. Any time you want a decimal point to be an option, you have to input at least one number with a decimal point:</p>
                     </div>
                     <div class="console">
 <pre>
@@ -200,28 +219,36 @@ else:
                     </div>
                     <div class="console">
 <pre>
-date = 28
-if date > 26 and date < 31:
-    print "Time for ALA Annual."
+hour = 10
+if hour > 9 and hour < 17:
+    print "Probably at work."
 else:
-    print "Still time to pack!"
+    print "Hooray, no meetings!"
 </pre>
                     </div>
                     <div class="message">
-                    <p>You can also check more than situations. If you want to do so, you need to use <code>elif</code> (remember it as an abbreviation for else if). You can use <code>elif</code> as many times as you would like to evaluate as many conditions as you would like. Let's see an example:
+                    <p>You can also check more than situations. If you want to do so, you need to use <code>elif</code> (remember it as an abbreviation for else if). You can use <code>elif</code> as many times as you would like to evaluate as many conditions as you would like. Let's see an example:</p>
                     </div>
                     <div class="console">
 <pre>
-date = 28
-if date > 26 and date < 31:
-    print "Time for ALA Annual."
-elif date == 28:
-    print "Time for my preconference!"
+hour = 10
+if hour == 12:
+    print "Lunchtime!"
+elif hour > 9 and hour < 17:
+    print "Probably at work."
 else:
-    print "Still time to pack!"
+    print "Hooray, no meetings!"
 </pre>
 
                     </div>
+
+                    <div class="message">
+                    <p>
+                    Try changing <code>hour</code> so that you can output
+                    each of the other print statements.
+                    </p>
+                    </div>
+
                     <div class="message">
                     <h3>Functions</h3>
                     <p>We've already talked briefly about simple functions when we discussed <code>type()</code>, but with Python you can write far more complicated functions than this. As with <code>type()</code>, many functions have already been written and can be called with their name. But, what if we want to write our own functions?</p>
@@ -311,7 +338,9 @@ len(todo_list)
                     </div>
                     <div class="message">
                         <p>
-                            ...wait what?
+                            ...wait what?  (What item did you expect to get?
+                            What did you get? If they didn't match, can you
+                            explain what's going on here?)
                         </p>
                         <h3>Adding elements</h3>
                         <p>
@@ -482,7 +511,7 @@ string[0:3]
                     </div>
                     <div class="message">
                         <p>
-                            Strings aren't always like lists; you can't use list methods like <code>append()</code> on them.  But the indexing notation works, treating a string just like a list of characters. The <code>len()</code> function can take either a string or a list as an argument.  + works for both strings and lists, too.  And the <code>for</code> loops we'll see next work the same way for both strings and lists, too.
+                            Strings aren't always like lists; you can't use list methods like <code>append()</code> on them.  But the indexing notation works, treating a string just like a list of characters. The <code>len()</code> function can take either a string or a list as an argument.  The concatenation operator <code>+</code> works for both strings and lists, too.  And the <code>for</code> loops we'll see next work the same way for both strings and lists, too.
                         </p>
                         <div class="stickynote">
                             If you've programmed before in a statically typed language, this will probably either blow your mind with glee, or freak you out.  <a href="http://wiki.python.org/moin/Why%20is%20Python%20a%20dynamic%20language%20and%20also%20a%20strongly%20typed%20language">More details</a>.
@@ -503,7 +532,7 @@ string[0:3]
                 <h1>
                     <input class="big_checkbox" id="input_step3" type="checkbox" value="valuable">
                     <label for="input_step3"></label>
-                    <span class="prefix">Loops and more flow control</span>
+                    <span class="prefix">Loops and more control flow</span>
                 </h1>
                 <blockquote>
                     <div class="message">
@@ -540,7 +569,7 @@ string[0:3]
 <pre>
 print pie[0]
 print pie[1]
-print pie [2]
+print pie[2]
 </pre>
 		</div>
 
@@ -568,17 +597,17 @@ for fruit in pie:
 
 		<div class="message">
 			<p>
-			The example above has a simple command, but we can do much more in loops. We can introduce other forms of flow control in loops. Do y'all remember <code>if…else</code> statements? You can use them in loops if you are looking for a particular condition with one or more of the elements in a list. Here's an example. What will happen?
+			The example above has a simple command, but we can do much more in loops. We can introduce other forms of control flow in loops. Do y'all remember <code>if…else</code> statements? You can use them in loops if you are looking for a particular condition with one or more of the elements in a list. Here's an example. What will happen?
 			</p>
 		</div>
 
 		<div message="console">
 <pre>
 for fruit in pie:
-	if fruit == "strawberry":
-		print "I like strawberry!"
-	else:
-		print fruit
+    if fruit == "strawberry":
+        print "I like strawberry!"
+    else:
+        print fruit
 </pre>
 		</div>
 		<div class="message">
@@ -594,8 +623,7 @@ for fruit in pie:
 		</div>
 
 		<div class="console">
-			<pre>approved_berries = ["strawberry", "currants", "elderberry"]
-			</pre>
+			<pre>approved_berries = ["strawberry", "currants", "elderberry"]</pre>
 		</div>
 
 		<div class="message">
@@ -618,7 +646,7 @@ print str(i) + ' approved berries in this pie'
 		<div class="message">
 			<h3>You can't handle the <code>raw_input()</code>!</h3>
 				<p>
-				Before we finish with this section, there's one more function that you'll find useful when dealing with flow control. Sometimes you will need something from the person running the script in order for the script to then act on that information. <code>raw_input()</code> prompts the user to enter a value, which you can then store in a variable.
+				Before we finish with this section, there's one more function that you'll find useful when dealing with control flow. Sometimes you will need something from the person running the script in order for the script to then act on that information. <code>raw_input()</code> prompts the user to enter a value, which you can then store in a variable.
 				</p>
 				<p>
 				What will this code do? What's the <code>pies[-1]</code> thing doing?
@@ -631,12 +659,14 @@ pies = ['lemon meringue', 'apple', 'pumpkin', 'pecan', 'Boston cream']
 for pie in pies:
     print pie
     answer = raw_input("Is this your favorite kind of pie? ")
+    
     if answer == "yes":
         print "Yum! I love " + pie + " pie too."
         # we've found their favorite pie; no need to loop further
         break
     else:
         print "Guess we'll keep looking, then..."
+        
     # what if we've gotten through the whole list and not found a fave pie?
     if pie==pies[-1]:
         answer = raw_input("Gosh then. What IS your favorite kind of pie? ")
@@ -652,6 +682,31 @@ for pie in pies:
 				    or met the condition you were looking for already. In that case,
 				    there's no need to go manipulating all the other variables in your
 				    for loop.  It's okay to stop.
+				</p>
+				<p>
+				    One last thing. We keep using the term <span class="stickynote">
+				    control flow</span>, and we haven't defined it yet. (Bad instructor!
+				    No pie!)  So what is it?  Control flow is the logic that defines
+				    how you move through your program.  Which functions do you need to 
+				    call? Which data do you need to work with?  When you get to a fork
+				    in the road, which way do you go?
+				</p>
+				<p>
+				    <code>if/else</code> statements are control flow statements: you
+				    use them when you need to make a choice about which block of
+				    code to execute. Loops are control flow statements: you use them
+				    when you need to flow through the same code block a bunch of times.
+				    <code>break</code> is a control flow statement: it tells the program
+				    to stop flowing through a particular code block.
+				</p>
+				<p>
+				    A lot of your life as a programmer is about understanding what
+				    paths you can take through your code, and what logical rules you
+				    can create to instruct the computer which paths to choose.
+				    Control flow <I>is</I> the core difference between a programming
+				    language, like, Python, and a markup language, like HTML. If 
+				    control flow statements aren't absolutely clear to you, spend
+				    time practicing them, and ask questions.  You will get them in time.
 				</p>
 		</div>
 
@@ -680,7 +735,7 @@ for pie in pies:
                     </div>
                     <div class="message">
                         <p>
-                            <span class="stickynote"><a href="http://docs.python.org/2/tutorial/datastructures.html#dictionaries" title="Dictionaries | Python Data Structures">Dictionaries</a></span>, abbreviated to "<span class="stickynote">dicts</span>" in Python-speak, are a set of key-value pairs much like a linguistic dictionary contains terms and their definitions. Dicts can be useful to store structured data or make difficult-to-remember values easier to access. Let's see how you make a new dict.
+                            <span class="stickynote"><a href="http://docs.python.org/2/tutorial/datastructures.html#dictionaries" title="Dictionaries | Python Data Structures">Dictionaries</a></span>, abbreviated to "<span class="stickynote">dicts</span>" in Python-speak, are sets of key-value pairs, much like a linguistic dictionary contains terms and their definitions. Dicts can be useful to store structured data or make difficult-to-remember values easier to access. Let's see how you make a new dict.
                         </p>
                     </div>
                     <div class="console">
@@ -693,7 +748,7 @@ words = {
                     </div>
                     <div class="message">
                         <p>
-                            Like any other variable, we start by giving the dict a name and then an equals sign. Remember that a single equals <em>assigns</em> a variable's value, while multiple equals is used to <em>compare</em> a variable's value against something else. Dicts look very similar to <span class="stickynote">lists</span>, except they use curly braces to enclose their contents rather than square brackets.
+                            Like any other variable, we start by giving the dict a name (here, <code>words</code>) and then an equals sign. Remember that a single equals <em>assigns</em> a variable's value, while multiple equals is used to <em>compare</em> a variable's value against something else. Dicts look very similar to <span class="stickynote">lists</span>, except they use curly braces to enclose their contents rather than square brackets.
                         </p>
                         <p>
                             Now that we've got a dict with some items in it, how do we retrieve its values?
@@ -701,9 +756,9 @@ words = {
                     </div>
                     <div class="console">
 <pre>
->>> words[ 'python' ]
+>>> words['python']
 'an awesome programming language'
->>> words[ 'anaconda' ]
+>>> words['anaconda']
 'a terrifying snake'
 </pre>
                     </div>
@@ -717,8 +772,8 @@ words = {
                     </div>
                     <div class="console">
 <pre>
->>> words[ 'boa constrictor' ] = 'an even more terrifying snake'
->>> words[ 'boa constrictor' ]
+>>> words['boa constrictor'] = 'an even more terrifying snake'
+>>> words['boa constrictor']
 'an even more terrifying snake'
 >>> words[ 'anaconda' ] = 'a slightly less terrifying snake'
 >>> words[ 'anaconda' ]

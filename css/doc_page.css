@@ -295,3 +295,7 @@ div.stickynote {
 span.stickynote {
     background-color: #ffc;
 }
+
+.doc pre:hover {
+  overflow: visible;
+}
