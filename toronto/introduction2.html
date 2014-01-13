@@ -1,0 +1,567 @@
+---
+layout: default
+title: Self-paced introduction, part 2
+next_path: checkoff.html
+next_title: Checkoff
+previous_path: introduction.html
+previous_title: Self-paced introduction, part 1
+---
+<div class="doc">        
+    <div class="goals">
+        <h1>Goals</h1>
+        <ul>
+            <li>Run python scripts from a file</li>
+            <li>Meet the Boolean data type</li>
+            <li>Use flow control (if/elif/else)</li>
+            <li>Write your first functions</li>
+        </ul>
+    </div>
+    
+    <div class="steps">
+        <h1>Steps</h1>
+        <blockquote>
+            <a name="step1"></a>
+            <div class="step">
+                <h1>
+                    <input class="big_checkbox" id="input_step1" type="checkbox" value="valuable">
+                    <label for="input_step1"></label>
+                    <span class="prefix">Python scripts</span>
+                </h1>
+                <blockquote>
+                    <div class="message">
+                        <p>
+                            Until now we've been executing commands at the Python prompt. This is great for math, short bits of code, and testing. For longer ideas, it's easier to store the code in a file.
+                        </p>
+                        <ul>
+                            <li>
+                                Download the file <a href="http://mit.edu/jesstess/www/BostonPythonWorkshop7/nobel.py">http://mit.edu/jesstess/www/BostonPythonWorkshop7/nobel.py</a> by right-clicking on it and saying to save it as a ".py" file to your Desktop. The ".py" extension hints that this is a Python script.
+                            </li>
+                            <li>
+                                Open a command prompt, and use the navigation commands (dir and cd on Windows, ls, pwd, and cd on OS X and Linux) to navigate to your home directory. See <a href="before.html#step4">practice navigating your files from a command prompt</a> for a refresher on those commands.
+                            </li>
+                            <li>
+                                Once you are in your home directory, execute the contents of <code>nobel.py</code> by typing
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>python nobel.py</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            at a command prompt.
+                        </p>
+                        <ul start="4">
+                            <li>
+                                Open <code>nobel.py</code> in your text editor (see the instructions on <a href="before.html#step2">setting up your text editor</a> for a refresher on starting the editor).
+                            </li>
+                            <li>
+                                Read through the file in your text editor carefully and check your understanding of both the comments and the code.
+                            </li>
+                        </ul>
+                        <p>
+                            Study the script until you can answer these questions:
+                        </p>
+                        <div class="stickynote">
+                            A <b>comment</b> is a note that makes your code easier to understand.  The computer ignores comments, but when you write code that might be particularly confusing to other programmers -- <I>including yourself in the future</I> -- you should add a comment to facilitate collaboration and improvements.
+                        </div>
+                        <ul>
+                            <li>
+                                How do you <span class="stickynote">comment</span> code in Python?
+                            </li>
+                            <li>
+                                How do you print just a newline?
+                            </li>
+                            <li>
+                                How do you print a multi-line string so that whitespace is preserved?
+                            </li>
+                        </ul>
+                        <p>
+                            This is a good place to chat with your neighbors
+                            and make sure you can articulate these answers (or ask for help and work it out together if you need to).
+                        </p>
+                        <p>
+                            Let's get back to some interactive examples. Keep typing them out! You'll thank yourself later. :)
+                        </p>
+                    </div>
+                </blockquote>
+            </div>
+        </blockquote>
+        <blockquote>
+            <a name="step2"></a>
+            <div class="step">
+                <h1>
+                    <input class="big_checkbox" id="input_step2" type="checkbox" value="valuable">
+                    <label for="input_step2"></label>
+                    <span class="prefix">Booleans</span>
+                </h1>
+                <blockquote>
+                    <div class="message">
+                        <p>
+                            That's right: booleans aren't just for librarians with mad ninja OPAC skills.  Programmers use them too.  Constantly.
+                        </p>
+                        <p>
+                            So far, the code we've written has been unconditional: no choice is getting made, and the code is always run. Python has another data type called a <span class="stickynote">boolean</span> that is helpful for writing code that makes decisions. There are two booleans: <code>True</code> and <code>False</code>.
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>True</pre>
+                        <pre>type(True)</pre>
+                        <pre>False</pre>
+                        <pre>type(False)</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            You can test if Python objects are equal or unequal. The result is a boolean:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>0 == 0</pre>
+                        <pre>0 == 1</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Use == to test for equality. Recall that = is used for <span class="stickynote">assignment</span>.
+                        </p>
+                        <p>
+                            This is an important idea and can be a source of bugs until you get used to it: <b>= is assignment, == is comparison</b>.
+                        </p>
+                        <p>
+                            Use != to test for inequality.  (Before you hit enter, what do you think the result of each of these tests will be?)
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>"a" != "a"</pre>
+                        <pre>"a" != "A"</pre>
+                    </div>
+                    <div class="message">
+                        <p><, <=, >, and >= have the same meanings you're familiar with from school. The result of these tests is a boolean:</p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>1 > 0</pre>
+                        <pre>2 >= 3</pre>
+                        <pre>-1 < 0</pre>
+                        <pre>.5 <= 1</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            You can check for containment with the <code>in</code> keyword, which also results in a boolean:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>"H" in "Hello"</pre>
+                        <pre>"h" in "Hello"</pre>
+                        <pre>"X" in "Hello"</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Or check for a lack of containment with <code>not in</code>:
+                        </p>
+                    </div>
+                    <div class="stickynote">
+                        Programmer joke here.  <a href="http://www.perl.org/">Perl</a> is a programming language that was hugely popular in the 1990s, and there's still a ton of perl code being written, including in libraryland.  It's very different stylistically from Python, though. As many people who've programmed in more than one language have strong favorites (and unfavorites), some Pythonistas might be known to diss Perl. We here take no position on the merits of different languages.  Except that Python is awesome.
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>"a" not in "abcde"</pre>
+                        <pre>"Perl" not in "ALA Python Preconference"</pre>
+                    </div>
+                </blockquote>
+            </div>
+        </blockquote>
+        <blockquote>
+            <a name="step3"></a>
+            <div class="step">
+                <h1>
+                    <input class="big_checkbox" id="input_step3" type="checkbox" value="valuable">
+                    <label for="input_step3"></label>
+                    <span class="prefix">Flow control</span>
+                </h1>
+                <blockquote>
+                    <h2><code>if</code> statements</h2>
+                    <div class="message">
+                        <p>
+                            We can use these expressions that <i>evaluate</i> to booleans to make decisions and conditionally execute code.  (As always, decide what you think will happen before running the code!)
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>if 6 > 5:
+     print "Six is greater than five!"</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            That was our first multi-line piece of code, and the way to enter it at a Python prompt is a little different. First, type the <code>if 6 > 5:</code> part, and press Enter. The next line will have <code>...</code> as a prompt, instead of the usual >>>. This is Python telling us that we are in the middle of a <span class="stickynote">code block</span>, and so long as we indent our code it should be a part of this code block.
+                        </p>
+                        <p>
+                            Enter 4 spaces, and then type <code>print "Six is greater than five!"</code>  Press Enter to end the line, and press Enter again to tell Python you are done with this code block. All together, it will look like this:
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>>>> if 6 > 5:
+...      print "Six is greater than five!"
+... 
+Six is greater than five!</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            What is going on here? When Python encounters the if keyword, it evaluates the expression following the keyword and before the colon. If that expression is <b>True</b>, Python executes the code in the indented code block under the if line. If that expression is <b>False</b>, Python skips over the code block.
+                        </p>
+                        <p>
+                            In this case, because 6 really is greater than 5, Python executes the code block under the if statement, and we see "Six is greater than five!" printed to the screen. Guess what will happen with these other expressions, then type them out and see if your guess was correct:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>if 0 > 2:
+     print "Zero is greater than two!"
+</pre>
+<pre>
+if "banana" in "bananarama":
+    print "I miss the 80s."
+</pre>
+                    </div>
+                    <h2>More choices: <code>if</code> and <code>else</code></h2>
+                    <div class="message">
+                        <p>
+                            You can use the <code>else</code> keyword to execute code when the <code>if</code> expression isn't True. Try this:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>sister_age = 15
+brother_age = 12
+if sister_age > brother_age:
+    print "sister is older"
+else:
+    print "brother is older"
+</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Like with <code>if</code>, the code block under the <code>else</code> statement must be indented so Python knows that it is a part of the else block.
+                        </p>
+                    </div>
+                    <h2>compound conditionals: <code>and</code> and <code>or</code></h2>
+                    <div class="message">
+                        <p>
+                            As you know again from your mad ninja OPAC skills, you can check multiple expressions together using the <code>and</code> and <code>or</code> keywords. If two expressions are joined by an <code>and</code>, they <b>both</b> have to be True for the overall expression to be True. If two expressions are joined by an <code>or</code>, as long as <b>at least one</b> is True, the overall expression is True.
+                        </p>
+                        <p>
+                            Try typing these out and see what you get:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>1 > 0 and 1 < 2</pre>
+                        <pre>1 < 2 and "x" in "abc"</pre>
+                        <pre>"a" in "hello" or "e" in "hello"</pre>
+                        <pre>1 <= 0 or "a" not in "abc"</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Guess what will happen when you enter these next two examples, and then type them out and see if you are correct. If you have trouble with the indenting, call over a staff member and practice together. It is important to be comfortable with indenting for the lecture and afternoon projects.
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>temperature = 32
+if temperature > 60 and temperature < 75:
+    print "It's nice and cozy in here!"
+else:
+    print "Too extreme for me."</pre>
+                        <pre>hour = 11
+if hour < 7 or hour > 23:
+    print "Go away!"
+    print "I'm sleeping!"
+else:
+    print "Welcome to the yarn shop!"
+    print "Can I interest you in some nice merino?"</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            You can have as many lines of code as you want in <code>if</code> and <code>else</code> blocks; just make sure to indent them so Python knows they are a part of the block.
+                        </p>
+                    </div>
+                    <h2>even more choices: <code>elif</code></h2>
+                    <div class="message">
+                        <p>
+                            If you have more than two cases, you can use the <code>elif</code> keyword to check more cases. You can have as many <code>elif</code> cases as you want; Python will go down the code checking each <code>elif</code> until it finds a True condition or reaches the default <code>else</code> block.
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>temperature = 32
+if temperature > 60 and temperature < 75:
+    print "It's nice and cozy in here!"
+elif temperature > 75:
+    print "Too extreme for me."
+else:
+    print "Brrr! Fetch me my cardigan."</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            You don't have to have an <code>else</code> block, if you don't need it. That just means there isn't default code to execute when none of the <code>if</code> or <code>elif</code> conditions are True:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>color = "orange"
+if color == "green" or color == "red":
+    print "Christmas color!"
+elif color == "black" or color == "orange":
+    print "Halloween color!"
+elif color == "pink":
+    print "Valentine's Day color!"</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            If color had been "purple", that code wouldn't have printed anything.
+                        </p>
+                        <p>
+                            <b>Remember that '=' is for assignment and '==' is for comparison.</b>
+                        </p>
+                    </div>
+                    <h2>In summary: the structure of <code>if</code>/<code>elif</code>/<code>else</code></h2>
+                    <div class="message">
+                        <p>
+                            Here's a summary of <code>if</code>/<code>elif</code>/<code>else</code>:
+                        </p>
+                        <img src="https://openhatch.org/w/images/0/03/If-elif-else.png">
+                        <p>
+                            Do you understand the difference between <code>elif</code> and <code>else</code>? When do you indent? When do you use a colon? If you're not sure, talk about it with a neighbor or staff member.
+                        </p>
+                    </div>
+                </blockquote>
+            </div>
+        </blockquote>
+        <blockquote>
+            <a name="step4"></a>
+            <div class="step">
+                <h1>
+                    <input class="big_checkbox" id="input_step4" type="checkbox" value="valuable">
+                    <label for="input_step4"></label>
+                    <span class="prefix">Writing functions</span>
+                </h1>
+                <blockquote>
+                    <div class="message">
+                        <p>
+                            We talked a bit about functions when we introduced the <code>len()</code> and <code>type()</code> functions. Let's review what we know about functions:
+                        </p>
+                        <ul>
+                            <li>They do some useful bit of work.</li>
+                            <li>They let us re-use code without having to type it out each time.</li>
+                            <li>They take input and possibly produce output (we say they <span class="stickynote">return</span> a value). You can assign a variable to this output.</li>
+                            <li>You call a function by using its name followed by its <span class="stickynote">arguments</span> in parentheses.</li>
+                        </ul>
+                        <p>
+                            For example:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <span></span>
+                        <pre>length = len("Mississippi")</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Executing this code assigns the length of the string "Mississippi" to the variable <code>length</code>.
+                        </p>
+                        <p>
+                            We can write our own functions to encapsulate bits of useful work so we can reuse them. Here's how you do it:
+                        </p>
+                    </div>
+                    <h2>Step 0: Think about what your function should do and what its arguments should be</h2>
+                    <div class="message">
+                        <p>
+                            Arguments are information your function needs to have to complete its work.  Sometimes they help the function make choices: <code>is_it_yummy("chocolate")</code> might return <code>True</code>, whereas <code>is_it_yummy("snozzberries")</code> might return <code>False</code>.  Sometimes the arguments will be changed by the function. Imagine the function <code>weed(collection)</code>.  Our <code>collection</code> will probably be different before and after we run <code>weed()</code>.
+                        </p>
+                        <p>
+                            Deciding what your arguments should be is an important part of writing functions.  What information or procedures are <i>the same every time</i>?  That should be part of the function's internal logic; it doesn't need an argument for things that never change.  What varies?  That may need to be an argument.  (In our <code>weed()</code> example, you may have a standard set of rules you apply every time you weed a collection, but the collection that you're weeding is different each time.  <code>weed()</code> contains the standard rules; <code>collection</code> is the argument you need for the function to make sense.)
+                        </p>
+                        <p>
+                            You also need to think about what <i>kind of things</i> your function does stuff to.  For instance, how does <code>weed(collection)</code> work?  It might be able to do things to a collection of books, or DVDs, or magazines using pretty much the same rules (about age, quality, relevance, etc.).  Or maybe you actually need slightly different rules (you keep books longer than magazines).  Depending on how different, this might mean that you have some if/then rules inside your function, or it might be easier to write different functions (<code>weed_books(collection)</code>, <code>weed_magazines(collection)</code>).  Does <code>weed(collection)</code> also work if you feed it a collection of art? Of stamps? Of zombies?
+                        </p>
+                        <p>
+                            There's no right or wrong answer, as long as the function you write solves your problem.  But you do need to be able to state clearly what the problem is.  It's also a good idea to write a comment inside your function, explaining briefly to future programmers (including yourself in six months!) what this function does, what kind of input it expects, and what kind of output it provides.
+                        </p>
+                    </div>
+                    <h2>Step 1: Write a function signature</h2>
+                    <div class="message">
+                        <p>
+                            A <span class="stickynote">function signature</span> tells you how the function will be called. It starts with the keyword <code>def</code>, which tells Python that you are defining a function. Then comes a space, the name of your function, an open parenthesis, the comma-separated input arguments for your function, a close parenthesis, and a colon. Here's what a function signature looks like for a function that takes no arguments:
+                        </p>
+                        <p>
+                            <code>def myFunction():</code>
+                        </p>
+                        <p>
+                            Here's what a function signature looks like for a function that takes one argument called <code>string</code>:
+                        </p>
+                        <p>
+                            <code>def myFunction(string):</code>
+                        </p>
+                        <p>
+                            And one for a function that takes two arguments:
+                        </p>
+                        <p>
+                            <code>def myFunction(myList, myInteger):</code>
+                        </p>
+                        <p>
+                            Arguments should have names that usefully describe what they are used for in the function.  Functions should (unlike <code>myFunction()</code>) have descriptive names, too.
+                        </p>
+                    </div>
+                    <h2>Step 2: do useful work inside the function</h2>
+                    <div class="message">
+                        <p>
+                            Underneath the function signature you do your useful work. Everything inside the function is indented, just like with if/else blocks, so Python knows that it is a part of the function.
+                        </p>
+                        <p>
+                            You can use the variables passed into the function as arguments, just like you can use variables once you define them outside of functions.
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def add(x, y):
+    result = x + y</pre>
+                    </div>
+                    <h2>Step 3: return something</h2>
+                    <div class="message">
+                        <p>
+                            If you want to be able to assign the output of a function to a variable so you can use it later, the function has to <b>return that output</b> using the return keyword.
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def add(x, y):
+    result = x + y
+    return result</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            or, even shorter:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def add(x, y):
+    return x + y</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            You can return any Python object: numbers, strings, booleans ... even other functions!
+                        </p>
+                        <p>
+                            Once you execute a return, you are done with the function -- you don't get to do any more work. That means if you have a function like this...
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def absoluteValue(number):
+    if number < 0:
+        return number * -1
+    return number</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            ...if <code>number</code> is less than 0, you return number * -1 and never even get to the last line of the function. However, if <code>number</code> is greater than or equal to 0, the <code>if</code> expression evaluates to <code>False</code>, so we skip the code in the <code>if</code> block and return <code>number</code>.
+                        </p>
+                        <p>
+                            We could have written the above function like this if we wanted. It's the same logic, just more typing:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def absoluteValue(number):
+    if number < 0:
+        return number * -1
+    else:
+        return number</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            There's usually more than one right way to write a program (that is, it runs and does the thing it's supposed to do).  Sometimes one of them may be better (e.g. it runs faster or is easier to read and modify), but some differences are purely a matter of personal style.  As we write more complicated programs later today, you might enjoy comparing notes with your neighbors and seeing the different ways you've attacked the same problem.
+                        </p>
+                    </div>
+                    <h2>Step 4: use the function</h2>
+                    <div class="message">
+                        <p>
+                            Once you define a function you can use it as many times as you want:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def add(x, y):
+    return x + y
+
+result = add(1234, 5678)
+print result
+result = add(-1.5, .5)
+print result</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Functions don't have to return anything, if you don't want them to. They usually return something because we usually want to be able to assign variables to their output.
+                        </p>
+                    </div>
+                    <h2>What is the difference between print and return?</h2>
+                    <div class="message">
+                        <p>
+                            Think for a moment about the differences between <code>print</code> and <code>return</code>:
+                        </p>
+                        <ul>
+                            <li><code>print</code> prints output to the screen so your eyes can see it.</li>
+                            <li><code>return</code> is used to hand off a value from inside a function to a variable outside the function.</li>
+                        </ul>
+                        <p>
+                            For example:
+                        </p>
+                    </div>                    
+                    <div class="console">
+                        <pre>def add(x, y):
+    print x + y</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            will print <code>x + y</code> to the screen so your eyes can see it.
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>def add(x, y):
+    return x + y</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            will hand off <code>x + y</code> from inside the function to outside the function. This allows you to do something like:
+                        </p>
+                    </div>
+                    <div class="console">
+                        <pre>result = add(5, 6)
+print result</pre>
+                    </div>
+                    <div class="message">
+                        <p>
+                            Does that make sense? If not, talk about it with a neighbor or staff member.
+                        </p>
+                    </div>
+                </blockquote>
+            </div>
+        </blockquote>
+        <blockquote>
+            <a name="step5"></a>
+            <div class="step">
+                <h1>
+                    <input class="big_checkbox" id="input_step5" type="checkbox" value="valuable">
+                    <label for="input_step5"></label>
+                    <span class="prefix">End of part 2</span>
+                </h1>
+                <blockquote>
+                    <div class="message">
+                        <p>
+                            Congratulations! You've learned about and practiced executing Python scripts, booleans, conditionals, and if/else blocks, and you've written your own Python functions. This is a huge, huge accomplishment!
+                        </p>
+                        <img src="http://24.media.tumblr.com/tumblr_mbaro1RnNK1ql8ympo1_400.gif">
+                        <p>
+                            Take a break, stretch, meet some neighbors, and ask the staff if you have any questions about this material.
+                        </p>
+                    </div>
+                </blockquote>
+            </div>
+        </blockquote>
+    </div>
